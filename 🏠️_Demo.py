@@ -1,7 +1,8 @@
 import streamlit as st
 
+image_path = "TPhead.png"
+st.image(image_path, use_column_width=True)
 
-st.title('AI Coach')
 
 
 recorded_file = 'output_sample.mp4'

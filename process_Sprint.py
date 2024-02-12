@@ -4,7 +4,7 @@ import numpy as np
 from utils import find_angle, get_landmark_features, draw_text, draw_dotted_line
 
 
-class ProcessFrame:
+class ProcessSprint:
     def __init__(self, thresholds, flip_frame = False):
         
         # Set if frame should be flipped or not.
@@ -227,7 +227,7 @@ class ProcessFrame:
                 
                 draw_text(
                     frame, 
-                    'CAMERA NOT ALIGNED', 
+                    'CAMERA NOT ALIGNED PROPERLY!!!', 
                     pos=(30, frame_height-60),
                     text_color=(255, 255, 230),
                     font_scale=0.65,
@@ -235,14 +235,14 @@ class ProcessFrame:
                 ) 
                 
                 
-                #draw_text(
-                   # frame, 
-                    #'OFFSET ANGLE: '+str(offset_angle), 
-                   # pos=(30, frame_height-30),
-                    #text_color=(255, 255, 230),
-                    #font_scale=0.65,
-                    #text_color_bg=(255, 153, 0),
-                #) 
+                draw_text(
+                    frame, 
+                    'OFFSET ANGLE: '+str(offset_angle), 
+                    pos=(30, frame_height-30),
+                    text_color=(255, 255, 230),
+                    font_scale=0.65,
+                    text_color_bg=(255, 153, 0),
+                ) 
 
                 # Reset inactive times for side view.
                 self.state_tracker['start_inactive_time'] = time.perf_counter()
