@@ -16,17 +16,26 @@ from process_frame import ProcessFrame
 from thresholds import get_thresholds_beginner, get_thresholds_pro
 
 
-st.title('AI Fitness Trainer: Squats Analysis')
+st.title('AI Drill Analysis')
+col1, col2 = st.columns([1, 2])
 
-mode = st.radio('Select Mode', ['Beginner', 'Pro'], horizontal=True)
+with col1:
+    mode = st.radio('Select Mode', ['Beginner', 'Pro'], index=0, key='mode')
 
-thresholds = None 
+with col2:
+    mode_text = st.selectbox('Select Drill', ['Select'] + ['Squat', 'Sprint'], index=0, key='mode_select')
 
+# Initialize thresholds
+thresholds = None
+
+# Get thresholds based on selected mode
 if mode == 'Beginner':
     thresholds = get_thresholds_beginner()
-
 elif mode == 'Pro':
     thresholds = get_thresholds_pro()
+
+# Display the selected mode and thresholds
+
 
 
 live_process_frame = ProcessFrame(thresholds=thresholds, flip_frame=True)
